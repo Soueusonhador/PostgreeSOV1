@@ -1,0 +1,12 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: qwe543210
+    ports:
+      - 5432:5432
+    volumes:
+      - ./01-create_database.sql:/docker-entrypoint-initdb.d/01-create_database.sql
+      - ./02-insert-users.sql:/docker-entrypoint-initdb.d/02-insert-users.sql
